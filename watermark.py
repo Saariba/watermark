@@ -46,7 +46,7 @@ def watermark_with_transparency(input_image_path,
     transparent = Image.new('RGBA', (width, height), (0, 0, 0, 0))
     wm, wh = watermark.size
     transparent.paste(base_image, (0, 0))
-    transparent.paste(watermark, (w - wm, h - wh), mask=watermark)
+    transparent.paste(watermark, (w/2 - wm*0.5, h - wh), mask=watermark)
     transparent = transparent.convert('RGB')
     transparent.save(output_image_path)
 
